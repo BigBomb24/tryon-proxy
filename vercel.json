@@ -1,23 +1,7 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/tryon-proxy.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/tryon-proxy",
-      "dest": "/api/tryon-proxy.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
-    }
+  "rewrites": [
+    { "source": "/api/tryon-proxy", "destination": "/api/tryon-proxy.js" },
+    { "source": "/api/img-proxy", "destination": "/api/img-proxy.js" },
+    { "source": "/(.*)", "destination": "/public/$1" }
   ]
 }
